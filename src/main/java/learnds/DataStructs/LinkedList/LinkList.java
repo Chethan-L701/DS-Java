@@ -1,4 +1,4 @@
-package DataStructs.LinkedList;
+package learnds.DataStructs.LinkedList;
 
 public class LinkList {
     private Node head;
@@ -14,7 +14,8 @@ public class LinkList {
             head.setData(item);
         } else {
             Node temp = head;
-            while (temp.getLink() != null) temp = temp.getLink();
+            while (temp.getLink() != null)
+                temp = temp.getLink();
             Node node = new Node();
             node.setData(item);
             temp.setLink(node);
@@ -52,39 +53,39 @@ public class LinkList {
             System.out.println("List is empty");
         } else {
             Node temp = head;
-            while (temp.getLink()!=null){
-                if(temp.getLink().getData()==item){
-                    itemFound=true;
+            while (temp.getLink() != null) {
+                if (temp.getLink().getData() == item) {
+                    itemFound = true;
                     break;
                 }
                 temp = temp.getLink();
             }
-            if(itemFound)
+            if (itemFound)
                 temp.setLink(temp.getLink().getLink());
         }
         size--;
     }
 
-    public void deletePos(int pos){
-        if(pos>size)
+    public void deletePos(int pos) {
+        if (pos > size)
             System.out.println("Position is out of range.");
-        else{
-            if(pos >1) {
+        else {
+            if (pos > 1) {
                 Node temp = head;
                 for (int i = 1; i < pos - 1; i++)
                     temp = temp.getLink();
                 temp.setLink(temp.getLink().getLink());
-            }else if(pos ==1){
-                head=head.getLink();
+            } else if (pos == 1) {
+                head = head.getLink();
             }
         }
     }
 
-    public int getItem(int index){
-        if(index<=size){
-            Node temp=head;
-            for (int i=1;i<index;i++)
-                temp=temp.getLink();
+    public int getItem(int index) {
+        if (index <= size) {
+            Node temp = head;
+            for (int i = 1; i < index; i++)
+                temp = temp.getLink();
             return temp.getData();
         }
         return 0;
@@ -98,6 +99,7 @@ public class LinkList {
                 temp = temp.getLink();
             } while (temp.getLink() != null);
             System.out.println("\t" + temp.getData());
-        } else System.out.println("List is empty.");
+        } else
+            System.out.println("List is empty.");
     }
 }
